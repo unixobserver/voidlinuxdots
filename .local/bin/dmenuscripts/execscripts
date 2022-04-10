@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Exec scripts (MAKE SURE YOUR SCRIPTS ARE ADDED TO YOUR $PATH)
+dir="${HOME}"/.local/bin
+
+### FOR DMENU ###
+Result=$(cd "${dir}"; find * -type f | dmenu)
+
+### FOR ROFI ###
+# Result=$(cd "${dir}"; find * -type f | rofi -dmenu)
+
+if [ -n "$Result" ]; then
+	$Result
+fi

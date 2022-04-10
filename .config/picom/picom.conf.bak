@@ -1,0 +1,128 @@
+#         _
+#  _ __  (_)  ___  ___   _ __ ___
+# | '_ \ | | / __|/ _ \ | '_ ` _ \
+# | |_) || || (__| (_) || | | | | |
+# | .__/ |_| \___|\___/ |_| |_| |_|
+# |_|
+#
+# @what My Compton configuration.
+# @author Daniel Csillag (aka. dccsillag)
+#
+
+backend = "glx";
+# backend = "xrender";
+# backend = "xr_glx_hybrid";
+
+# # Settings for GLX backend:
+xrender-sync-fence = true;
+glx-no-stencil = true;
+glx-use-copysubbuffermesa = false;
+glx-no-rebind-pixmap = true;
+
+# Remove flickering:
+unredir-if-possible = false;
+
+# # glx-no-stencil = false;
+use-damage = false;
+vsync = true;
+# # glx-no-rebind-pixmap = true;
+# # glx-no-stencil = true;
+# # glx-swap-method = 1;
+# xrender-sync = true;
+# xrender-sync-fence = true;
+# paint-on-overlay = true;
+
+# Fading
+# fading = true;
+fading              = false;
+# fade-delta = 20;
+# fade-in-step = 0.01;
+# fade-out-step = 0.01;
+fade-delta          = 1;
+fade-in-step        = 0.01;
+fade-out-step       = 0.01;
+no-fading-openclose = false;
+
+# Shadows
+shadow = true;
+# no-dnd-shadow = true;
+shadow-exclude = "bounding_shaped && !rounded_corners"
+# shadow-exclude = "name"
+shadow-radius = 10;
+shadow-offset-x = -8;
+shadow-offset-y = -8;
+shadow-red = 0;
+shadow-green = 0;
+shadow-blue = 0;
+shadow-opacity = 0.7;
+
+# # Corners
+corner-radius = 14;
+# corner-radius = 7;
+round-borders = 14;
+# rounded-corners-exclude = "!name || name = 'xmobar'"
+# rounded-corners-exclude = "name = 'xmobar'"
+
+# Focusing
+focus-exclude = [
+    "class_g = 'Rofi'",
+]
+
+# Dimming
+inactive-dim = 0.30;
+# inactive-dim = 0.15;
+# inactive-dim = 0.20;
+
+# opacity-rule = [
+#     "75:class_g = 'eww-panel-window'"
+# ];
+
+# Color inversion
+# invert-color-include = [
+#     "class_g = 'zoom' && (name = 'Chat' || name = 'Zoom - Free Account')",
+# ]
+
+# blur: {
+#     method = "dual_kawase";
+#     strength = 6;
+# }
+
+# # Animations (requires BlackCapCoder's compton fork)
+# transition-length   = 100;
+# transition-pow-x    = 0.5;
+# transition-pow-y    = 0.5;
+# transition-pow-w    = 0.5;
+# transition-pow-h    = 0.5;
+# # transition-pow-x    = 1;
+# # transition-pow-y    = 1;
+# # transition-pow-w    = 1;
+# # transition-pow-h    = 1;
+# # size-transition     = true;
+# size-transition     = false;
+# spawn-center-screen = false;
+# spawn-center        = false;
+# no-scale-down       = true;
+
+# active-opacity = 0.7;
+
+# Animations
+animations = true;
+# animation-stiffness = 20.0;
+# animation-stiffness = 370.0;
+# animation-stiffness = 200.0;
+# animation-stiffness = 300.0;
+# animation-dampening = 22.0;
+animation-clamping = true;
+# animation-mass = 0.8;
+animation-for-open-window = "zoom";
+animation-for-menu-window = "slide-down";
+animation-for-transient-window = "slide-down";
+animation-for-workspace-switch-in = "auto";
+animation-for-workspace-switch-out = "auto";
+
+wintypes:
+{
+    toolbar = { animation = "slide-down" }
+}
+
+# vim: ft=conf

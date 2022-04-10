@@ -1,0 +1,4 @@
+#!/bin/sh
+
+
+pw-jack /usr/bin/sclang

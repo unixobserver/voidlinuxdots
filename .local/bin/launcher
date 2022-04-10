@@ -1,0 +1,8 @@
+#!/usr/local/bin/zsh
+
+# Starts launcher
+
+#bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r exec'
+
+
+print -rl -- ${(ko)commands} | fzf  --layout=reverse | (nohup ${SHELL:-"/bin/sh"} &) >/dev/null 2>&1

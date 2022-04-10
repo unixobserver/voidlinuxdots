@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# This will start up your usb webcam, start a x11 screen grab, and record your mic
+#    -codec:a pcm_s16le \ 
+# 
+#    -f sndio -i snd/0.mon \
+
+ notify-send "Stop Recording" &
+
+pkill ffmpeg 
+
+
+

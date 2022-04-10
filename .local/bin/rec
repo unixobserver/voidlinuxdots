@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# This will start up your usb webcam, start a x11 screen grab, and record your mic
+#    -codec:a pcm_s16le \
+notify-send "Recording" &
+videoName=$(date +"%m_%d_%M_%Y")
+
+
+
+ffmpeg -y \
+	-f x11grab -thread_queue_size 1024 \
+	-framerate 30 \
+	-probesize 128M  \
+	-s 1920x1080 -r 30 -i +0,0 \
+	-f pulse -thread_queue_size 1024 -i default \
+	-r 30 \
+        -codec:v h264 -crf 0 -preset ultrafast -c:a aac \
+	/home/myst/Videos/$videoName.mp4 
+

@@ -1,0 +1,6 @@
+includePaths:
+    -   /home/myst/.local/share/SuperCollider/downloaded-quarks/BatLib
+    -   /home/myst/.local/share/SuperCollider/downloaded-quarks/FoxDot
+excludePaths:
+    []
+postInlineWarnings: false

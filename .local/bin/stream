@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# This script will capture your microphone & desktop, then stream them both to YouTube.
+# Add and play around with these to try to align - misaligned audio/video
+#	-vsync 2 -async 1 \
+
+VBR="8500k"                                    			# Bitrate For Stream
+FPS="30"                                       			# FPS For Screen Recording
+QUAL="ultrafast"                               			# Preset Quality (DEFAULT="medium")
+YOUTUBE_URL="rtmp://a.rtmp.youtube.com/live2"			# RTMP URL For YouTube
+STREAM_KEY="..."										# Stream Key
+
+ffplay -f v4l2 -input_format mjpeg -video_size 1920x1080 -i /dev/video0 & 
+
+ffmpeg -y \
+	-f x11grab -probesize 32M -thread_queue_size 512 \
+	-s 2560x1440 -r $FPS -i +0,0 \
+	-f sndio -thread_queue_size 512 -i snd/0 \
+    -codec:v libx264 -pix_fmt yuv420p -g $(($FPS * 2)) -b:v $VBR -preset $QUAL \
+	-codec:a aac \
+	-f flv $YOUTUBE_URL/$STREAM_KEY

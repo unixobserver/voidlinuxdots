@@ -1,0 +1,32 @@
+#!/usr/bin/bash -e
+#
+# Plumber for FFF and SHFM
+#
+
+case $1 in
+        *.mp3|*.flac|*.wav)
+            mpv --no-video "$1"
+        ;;
+
+        *.mp4|*.mkv|*.webm|*.mov)
+            mpv --keep-open "$1"
+        ;;
+
+        *.png|*.gif|*.jpg|*.jpe|*.jpeg)
+            nsxiv "$1"
+        ;;
+
+        *.pdf)
+            zathura "$1"
+        ;;
+
+        *.odt|*.ppt|*.csv)
+            libreoffice "$1"
+        ;;
+
+        # all other files
+        *)
+             vim "$1"
+        ;;
+
+    esac

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+
+
+pw-jack /usr/local/bin/renoise

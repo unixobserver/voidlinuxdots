@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Simple script to vibe
+# Chooses a random file from the specified dir
+#
+
+exec mpv --geometry=200x200+1600+800 \
+	 --x11-name=no-title \
+         --config-dir=/home/myst/.config/mpv/ \
+         --shuffle \
+         -- "$@" "$HOME/Music/"
+
+exec notify-send "Now Playing ♫" "$(mpv current)"

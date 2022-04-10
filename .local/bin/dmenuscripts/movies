@@ -1,0 +1,13 @@
+#!/bin/sh
+
+### FOR DMENU ###
+chosen=$( ls $HOME/Videos/movies/ | dmenu -l 10)
+
+### FOR ROFI ###
+# chosen=$( ls $HOME/Pictures/Wallpapers/ | rofi -dmenu )
+
+# Exit if none chosen.
+[ -z "$chosen" ] && exit
+
+exec mpv  "$HOME/Videos/movies/$chosen"  
+
